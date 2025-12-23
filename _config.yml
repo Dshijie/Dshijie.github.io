@@ -1,0 +1,28 @@
+title: "CHANGE_ME"
+description: ""
+url: ""                # optional, e.g. https://<username>.github.io
+baseurl: ""            # keep empty for user site
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
+
+collections:
+  pages:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+kramdown:
+  input: GFM
+
+plugins: []

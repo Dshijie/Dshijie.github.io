@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    {% if page.title and page.title != "" %}
+      <h1 class="post-title">{{ page.title }}</h1>
+    {% endif %}
+    {% if page.date %}
+      <div class="post-meta">{{ page.date | date: "%Y-%m-%d" }}</div>
+    {% endif %}
+
+    {% if page.tags and page.tags.size > 0 %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+          <a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav">
+    {% if page.previous %}
+      <a class="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+    {% endif %}
+  </nav>
+</article>
